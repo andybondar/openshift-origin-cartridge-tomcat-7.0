@@ -1,0 +1,13 @@
+Name: tomcat-7.0
+Version: 7.0
+Architecture: noarch
+Provides: tomcat
+Depends: java-1.7.0-openjdk
+Conflicts:
+Type: Cartridge
+Role: misc
+Vendor: www.openshift.com
+DisplayName: tomcat-7.0
+Bundles:  raw
+Description: 
+Provides Tomcat - open source Java Servlet container developed by Apache Software Foundation

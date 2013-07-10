@@ -1,0 +1,64 @@
+Name: tomcat-7.0
+Cartridge-Short-Name: TOMCAT
+Cartridge-Vendor: redhat
+Display-Name: Tomcat 7
+Description: "Apache Tomcat is an open source web server and servlet container developed by the Apache Software Foundation."
+Version: 7.0
+License: "ASL 2.0"
+License-Url: http://www.apache.org/licenses/LICENSE-2.0.txt
+Categories:
+  - web_framework
+  - experimental
+  - java
+Website: http://tomcat.apache.org/
+Help-Topics:
+  "Run your Tomcat on OpenShift": https://github.com/openshift/openshift-tomcat-quickstart
+Cart-Data:
+  - Key: OPENSHIFT_TOMCAT_LOG_DIR
+    Type: environment
+    Description: "Directory to store application log files."
+  - Key: OPENSHIFT_TMP_DIR
+    Type: environment
+    Description: "Directory to store application temporary files."
+  - Key: OPENSHIFT_REPO_DIR
+    Type: environemnt
+    Description: "Application root directory where application files reside. This directory is reset every time you do a git-push"
+  - Key: OPENSHIFT_INTERNAL_PORT
+    Type: environment
+    Description: "Internal port to which the web-framework binds to."
+  - Key: OPENSHIFT_INTERNAL_IP
+    Type: environment
+    Description: "Internal IP to which the web-framework binds to."
+  - Key: OPENSHIFT_APP_DNS
+    Type: environment
+    Description: "Fully qualified domain name for the application."
+  - Key: OPENSHIFT_APP_NAME
+    Type: environment
+    Description: "Application name"
+  - Key: OPENSHIFT_DATA_DIR
+    Type: environment
+    Description: "Directory to store application data files. Preserved across git-pushes. Not shared across gears."
+  - Key: OPENSHIFT_APP_UUID
+    Type: environment
+    Description: "Unique ID which identified the application. Does not change between gears."
+  - Key: OPENSHIFT_GEAR_UUID
+    Type: environment
+    Description: "Unique ID which identified the gear. This value changes between gears."
+Provides:
+  - tomcat-7.0
+  - tomcat
+Publishes:
+  publish-http-url:
+    Type: "NET_TCP:httpd-proxy-info"
+  publish-gear-endpoint:
+    Type: "NET_TCP:gear-endpoint-info"
+Subscribes:
+  set-db-connection-info:
+    Type: "NET_TCP:db:connection-info"
+    Required: false
+  set-nosql-db-connection-info:
+    Type: "NET_TCP:nosqldb:connection-info"
+    Required: false
+Scaling:
+  Min: 1
+  Max: 1
