@@ -49,6 +49,14 @@ create_cartridge_instance_dir "$cartridge_type"
 TOMCAT_INSTANCE_DIR=$(get_cartridge_instance_dir "$cartridge_type")
 pushd "$TOMCAT_INSTANCE_DIR" > /dev/null
 create_standard_app_dirs
+
+tar -zxf ${CARTRIDGE_BASE_PATH}/${cartridge_type}/info/apache-tomcat-7.0.42.tar.gz -C "$APP_HOME"
+mkdir ${TOMCAT_INSTANCE_DIR}/tomcat-7.0.42
+#chown -R $user_id:$group_id ${APP_HOME}/apache-tomcat-7.0.42
+
+
+
+
 mkdir -p ../.m2/repository
 chown -R $user_id ../.m2/repository
 mkdir logs
