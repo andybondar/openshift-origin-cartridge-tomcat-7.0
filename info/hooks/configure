@@ -52,7 +52,9 @@ create_standard_app_dirs
 
 tar -zxf ${CARTRIDGE_BASE_PATH}/${cartridge_type}/info/apache-tomcat-7.0.42.tar.gz -C "$APP_HOME"
 mkdir ${TOMCAT_INSTANCE_DIR}/tomcat-7.0.42
-#chown -R $user_id:$group_id ${APP_HOME}/apache-tomcat-7.0.42
+chown -R $user_id:$group_id ${APP_HOME}/apache-tomcat-7.0.42
+mv -f ${APP_HOME}/apache-tomcat-7.0.42/* ${TOMCAT_INSTANCE_DIR}/tomcat-7.0.42/
+rm -rf ${APP_HOME}/apache-tomcat-7.0.42/
 
 
 
