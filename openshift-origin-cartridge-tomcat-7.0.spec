@@ -45,6 +45,8 @@ mkdir -p %{buildroot}%{cartridgedir}/info/connection-hooks/
 mkdir -p %{buildroot}/%{_sysconfdir}/openshift/cartridges
 cp -rp info %{buildroot}%{cartridgedir}/
 cp -rp git_template.git %{buildroot}%{cartridgedir}/info/data/
+cp LICENSE %{buildroot}%{cartridgedir}/
+cp COPYRIGHT %{buildroot}%{cartridgedir}/
 ln -s %{cartridgedir}/info/configuration/ %{buildroot}/%{_sysconfdir}/openshift/cartridges/%{name}
 ln -s %{cartridgedir}/../abstract/info/hooks/add-module %{buildroot}%{cartridgedir}/info/hooks/add-module
 ln -s %{cartridgedir}/../abstract/info/hooks/info %{buildroot}%{cartridgedir}/info/hooks/info
@@ -79,10 +81,12 @@ ln -s %{cartridgedir}/../abstract/info/bin/sync_gears.sh %{buildroot}%{cartridge
 %attr(0755,-,-) %{cartridgedir}/info/bin/
 %config(noreplace) %{cartridgedir}/info/configuration/
 %{_sysconfdir}/openshift/cartridges/%{name}
+%doc %{cartridgedir}/COPYRIGHT
+%doc %{cartridgedir}/LICENSE
 %{cartridgedir}/info/changelog
 %{cartridgedir}/info/control
 %{cartridgedir}/info/manifest.yml
-
+%{cartridgedir}/info/apache-tomcat-7.0.42.tar.gz
 
 %changelog
 
