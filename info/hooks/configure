@@ -55,7 +55,7 @@ mkdir ${TOMCAT_INSTANCE_DIR}/tomcat-7.0.42
 chown -R $user_id:$group_id ${APP_HOME}/apache-tomcat-7.0.42
 mv -f ${APP_HOME}/apache-tomcat-7.0.42/* ${TOMCAT_INSTANCE_DIR}/tomcat-7.0.42/
 rm -rf ${APP_HOME}/apache-tomcat-7.0.42/
-cp -f ${CARTRIDGE_BASE_PATH}/${cartridge_type}/info/configuration/server.xml ${TOMCAT_INSTANCE_DIR}/tomcat-7.0.42/server.xml
+cp -f ${CARTRIDGE_BASE_PATH}/${cartridge_type}/info/configuration/server.xml ${TOMCAT_INSTANCE_DIR}/tomcat-7.0.42/conf/server.xml
 
 
 mkdir -p ../.m2/repository
@@ -70,7 +70,7 @@ populate_repo_dir
 #
 IP=`find_open_ip $uid $uuid`
 
-sed -i s/OPENSHIFT_INTERNAL_IP/$IP/g ${TOMCAT_INSTANCE_DIR}/tomcat-7.0.42/server.xml
+sed -i s/OPENSHIFT_INTERNAL_IP/$IP/g ${TOMCAT_INSTANCE_DIR}/tomcat-7.0.42/conf/server.xml
 
 secure_app_dir
 
