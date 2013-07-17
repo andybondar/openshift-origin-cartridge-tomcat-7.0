@@ -93,7 +93,7 @@ create_standard_path_env_var
 observe_setup_env_uservars_dir
 
 if [ -d $git_url ]; then
-    start_app
+    run_as_user "${CARTRIDGE_BASE_PATH}/${cartridge_type}/info/bin/app_ctl.sh start"
 fi
 
 #
