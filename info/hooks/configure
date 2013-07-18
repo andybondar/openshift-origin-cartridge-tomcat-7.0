@@ -59,6 +59,9 @@ rm -rf ${APP_HOME}/apache-tomcat-7.0.42/
 cp -f ${CARTRIDGE_BASE_PATH}/${cartridge_type}/info/configuration/server.xml ${TOMCAT_INSTANCE_DIR}/tomcat-7.0.42/conf/server.xml
 cp -f ${CARTRIDGE_BASE_PATH}/${cartridge_type}/info/configuration/maven.xml ${APP_HOME}/app-root/data/
 
+rm -rf ${TOMCAT_INSTANCE_DIR}/tomcat-7.0.42/webapps
+ln -s ${APP_HOME}/app-root/runtime/repo/deployments ${TOMCAT_INSTANCE_DIR}/tomcat-7.0.42/webapps
+
 mkdir -p ../.m2/repository
 chown -R $user_id ../.m2/repository
 mkdir logs
