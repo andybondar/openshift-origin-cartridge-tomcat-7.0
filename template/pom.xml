@@ -3,11 +3,11 @@
 
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>jettyapp</groupId>
-  <artifactId>jettyapp</artifactId>
+  <groupId>tomcatapp</groupId>
+  <artifactId>tomcatapp</artifactId>
   <packaging>war</packaging>
   <version>1.0</version>
-  <name>jettyapp</name>
+  <name>tomcatapp</name>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -22,7 +22,7 @@
     <profile>
      <id>openshift</id>
       <build>
-        <finalName>jettyapp</finalName>
+        <finalName>tomcatapp</finalName>
         <plugins>
           <plugin>
             <artifactId>maven-war-plugin</artifactId>
